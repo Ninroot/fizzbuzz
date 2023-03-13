@@ -50,8 +50,8 @@ func TestFizzbuzzEmptyStrings(t *testing.T) {
 	assert.Equal(t, expect, actual)
 }
 
-// func assert[T any](actual, expected T, t *testing.T) {
-// 	if !reflect.DeepEqual(actual, expected) {
-// 		t.Errorf("assert failed:\nexpected: %v\nactual:   %v", expected, actual)
-// 	}
-// }
+func BenchmarkFizzBuzzNominal(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		fizzbuzz(100, 3, 5, "Fizz", "Buzz")
+	}
+}
